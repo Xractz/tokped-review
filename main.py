@@ -23,7 +23,8 @@ class ReviewScraper:
 			ulasan = container.find('span', attrs={'data-testid': 'lblItemUlasan'}).text if container.find('span', attrs={'data-testid': 'lblItemUlasan'}) else ""
 			rating = container.find('div', attrs={'data-testid': 'icnStarRating'}).get('aria-label').split(' ')[1]
 			waktu_komentar = container.find('p', class_='css-1dfgmtm-unf-heading').text
-			
+
+			"""Extracts media URLs from the review container."""
 			media = [img.get('src') for img in container.find_all("img", attrs={'data-testid': 'imgItemPhotoulasan'})]
 			
 			return {
